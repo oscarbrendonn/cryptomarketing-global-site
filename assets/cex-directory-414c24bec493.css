@@ -1,0 +1,48 @@
+.cex-directory { scroll-margin-top: 100px; }
+.cex-search { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-block: 24px; }
+.cex-search label { width: 100%; font-weight: 600; }
+.cex-search input { flex: 1 1 220px; min-width: 0; padding: 14px 18px; border: 1px solid #d5d5da; border-radius: 14px; background: #fff; color: #1d1d1f; font: inherit; }
+.cex-search output { font-size: 13px; color: #55555c; font-variant-numeric: tabular-nums; }
+.cex-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; padding: 0; margin: 0; list-style: none; }
+.cex-card { display: flex; flex-direction: column; min-width: 0; padding: 24px; border: 1px solid #e5e5e9; border-radius: 22px; background: #fff; }
+.cex-card[hidden], .cex-toggle[hidden] { display: none; }
+.cex-card-heading { display: flex; align-items: center; gap: 12px; }
+.cex-card-heading img { flex: 0 0 40px; width: 40px; height: 40px; object-fit: contain; border-radius: 10px; }
+.cex-card h3 { margin: 0; font-size: 19px; line-height: 1.3; overflow-wrap: anywhere; color: #1d1d1f; }
+.cex-card p { margin: 16px 0 8px; font-size: 14px; color: #55555c; }
+.cex-price { color: #1d1d1f; font-size: 15px; }
+.cex-card-actions { margin-top: auto; padding-top: 24px; display: flex; flex-wrap: wrap; gap: 12px 20px; }
+.cex-card-actions a { font-size: 14px; font-weight: 600; color: #1d1d1f; text-decoration: underline; text-underline-offset: 4px; }
+.cex-toggle { margin-top: 22px; padding: 13px 22px; border: 1px solid #d5d5da; border-radius: 999px; font: inherit; color: #1d1d1f; background: #fff; cursor: pointer; }
+.cex-directory :is(a,button,input):focus-visible { outline: 3px solid #2457d6; outline-offset: 4px; }
+.cex-scope { font-size: 13px; line-height: 1.6; color: #55555c; margin-top: 20px; }
+@media(max-width: 850px) { .cex-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width: 560px) { .cex-grid { grid-template-columns: minmax(0,1fr); } .cex-card { padding: 20px; } }
+
+/* CEX listing support: collapsed overview, original exchange logos. */
+.cex-disclosure{border:1px solid var(--line,#d2d2d7);border-radius:22px;background:var(--surface,#fff);margin-block:36px;scroll-margin-top:100px}
+.cex-disclosure>.cex-summary{list-style:none;display:flex;align-items:center;gap:20px;padding:24px;cursor:pointer;min-width:0}
+.cex-summary::-webkit-details-marker{display:none}
+.cex-preview{display:grid;grid-template-columns:repeat(2,36px);gap:6px;flex:none}
+.cex-preview img{width:36px;height:36px;object-fit:contain;border-radius:8px;background:#fff}
+.cex-summary-copy{flex:1;min-width:0}.cex-kicker{display:block;font-size:11px;letter-spacing:.06em;color:var(--muted,#6e6e73);margin-bottom:6px}
+.cex-summary h2{font-size:clamp(19px,2.2vw,27px);line-height:1.25;margin:0;color:var(--ink,#1d1d1f);overflow-wrap:anywhere}
+.cex-arrow{font-size:26px;line-height:1;color:var(--muted,#6e6e73);flex:none}.cex-disclosure[open]>.cex-summary .cex-arrow{transform:rotate(45deg)}
+.cex-body{padding:0 24px 24px}.cex-intro{max-width:800px;color:var(--muted,#6e6e73);font-size:15px;line-height:1.65}
+.cex-disclosure .cex-card,.cex-disclosure .cex-toggle,.cex-disclosure input{background:var(--surface,#fff);border-color:var(--line,#d2d2d7);color:var(--ink,#1d1d1f)}
+.cex-disclosure .cex-card :is(h3,strong,a){color:var(--ink,#1d1d1f)}
+.cex-disclosure :is(.cex-card p,.cex-scope,output){color:var(--muted,#6e6e73)}
+.cex-disclosure .cex-card-heading img{background:#fff}
+.cex-summary:focus-visible{outline:3px solid var(--ink,#1d1d1f);outline-offset:4px;border-radius:22px}
+@media(max-width:560px){.cex-disclosure>.cex-summary{padding:18px;gap:14px}.cex-body{padding:0 16px 20px}.cex-preview{grid-template-columns:repeat(2,28px)}.cex-preview img{width:28px;height:28px}.cex-summary h2{font-size:20px}.cex-intro{font-size:14px}}
+
+/* Market choices stay inside their exchange card. */
+.cex-market-options{margin-block:18px;border-block:1px solid var(--line,#d2d2d7)}
+.cex-market-options>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;list-style:none;cursor:pointer;font-size:14px;line-height:1.5;color:var(--ink,#1d1d1f)}
+.cex-market-options>summary::-webkit-details-marker{display:none}
+.cex-market-options>summary>span{font-size:20px;flex:none}.cex-market-options[open]>summary>span{transform:rotate(45deg)}
+.cex-market-options>ul{list-style:none;padding:0;margin:0}
+.cex-market-options>ul>li{display:flex;flex-direction:column;gap:10px;padding:16px 0;border-top:1px solid var(--line,#d2d2d7);min-width:0}
+.cex-market-options strong{font-size:16px;line-height:1.4;overflow-wrap:anywhere}
+.cex-market-options a{font-size:14px;line-height:1.5;text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
+.cex-market-options>summary:focus-visible{outline:3px solid var(--ink,#1d1d1f);outline-offset:3px;border-radius:6px}

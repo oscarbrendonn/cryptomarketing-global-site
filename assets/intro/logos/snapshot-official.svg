@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title">
+  <title id="title">Snapshot</title>
+  <rect width="100" height="100" fill="#FAFE69"/>
+  <path d="M60 60H20v20h20c11.046 0 20-8.954 20-20ZM60 80V40c11.046 0 20 8.954 20 20s-8.954 20-20 20ZM20 40c0-11.046 8.954-20 20-20v40c-11.046 0-20-8.954-20-20ZM40 40.6h40v-20H60c-11.046 0-20 8.954-20 20Z" fill="#000"/>
+</svg>

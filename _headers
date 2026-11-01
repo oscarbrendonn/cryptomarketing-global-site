@@ -1,0 +1,10 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Cache-Control: public, max-age=0, must-revalidate
+
+/_indexnow/*
+  X-Robots-Tag: noindex
+
+/e681f7e4c0687dc38403a50db2010d38.txt
+  X-Robots-Tag: noindex

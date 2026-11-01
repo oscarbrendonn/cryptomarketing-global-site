@@ -1,0 +1,18 @@
+/* Scoped extension of Global's existing neutral disclosure cards. */
+.influencer-catalog-card[open]{grid-column:1/-1}
+.influencer-marks{display:flex;gap:8px;flex-shrink:0}
+.influencer-marks img{object-fit:contain;border-radius:8px}
+.influencer-platforms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start;margin-bottom:12px}
+.influencer-platform[open]{grid-column:span 2}
+.influencer-platform>summary{align-items:flex-start}
+.influencer-platform h4{font-size:14px;line-height:1.45;min-width:0;margin:0;overflow-wrap:anywhere}
+.influencer-platform .tool-meta{font-size:12px;font-weight:400;margin-top:5px;line-height:1.5}
+.influencer-platform .tool-body>p{font-size:13px;line-height:1.7}
+.influencer-platform h5{font-size:13px;margin:20px 0 12px}
+.influencer-guide{padding-inline-start:20px;font-size:12px;line-height:1.7;color:var(--muted);margin-block:18px}
+.influencer-guide li+li{margin-top:8px}
+.influencer-services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;list-style:none;padding:0;margin:0}
+.influencer-services li{border:1px solid var(--line);border-radius:9px;padding:10px;font-size:12px;line-height:1.6;overflow-wrap:anywhere}
+:root[data-theme=dark] .influencer-marks img{background:#fff}
+@media(max-width:980px){.influencer-platforms{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.influencer-platforms{grid-template-columns:1fr;gap:10px}.influencer-platform[open]{grid-column:auto}.influencer-services{grid-template-columns:1fr}.influencer-platform h4{font-size:13px}.influencer-catalog-card[open]>summary{align-items:flex-start}.influencer-marks{gap:6px}.influencer-catalog-card>summary .influencer-marks img{width:30px;height:30px}}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title">
+  <title id="title">Crypto.com</title>
+  <rect width="100" height="100" rx="21.7391" fill="url(#crypto-com-blue)"/>
+  <path d="M37.139 28.113h25.678l3.094 13.091H34.16l2.979-13.091ZM55.623 50.493l2.74-7.31H41.737l2.801 7.31-.854 8.199h6.337l6.398-.028-.796-8.171ZM65.971 45.63l-7.519 4.895v8.699l-5.748 5.516v2.591l5.541 5.105h4.63l11.674-20.35-8.578-6.456ZM41.708 50.525 34.1 45.688l-8.607 6.398 11.732 20.408h4.69l5.541-5.163V64.74l-5.748-5.516v-8.699Z" fill="#fff"/>
+  <path fill-rule="evenodd" d="m16.004 30.276 33.991-19.628 34.069 19.677v39.347L49.995 89.352l-.086-.049-33.991-19.631V30.325l.086-.049Zm33.991-15.613L19.4 32.338v35.333l30.595 17.666L80.59 67.671V32.338L49.995 14.663Z" fill="#fff"/>
+  <defs><radialGradient id="crypto-com-blue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(90) scale(100 218.117)"><stop offset=".025" stop-color="#3C62D1"/><stop offset=".286" stop-color="#1E379D"/><stop offset=".553" stop-color="#041C73"/><stop offset=".989" stop-color="#010348"/></radialGradient></defs>
+</svg>

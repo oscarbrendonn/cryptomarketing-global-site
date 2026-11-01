@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Website design and development</title>
+  <desc id="desc">A clean browser window with layout blocks and a code mark</desc>
+  <g fill="none" stroke="#1d1d1f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8">
+    <rect x="7.5" y="10.5" width="49" height="43" rx="7"/>
+    <path d="M8 21h48"/>
+    <path d="M16 16h.01M22 16h.01M28 16h.01" stroke-width="3.6"/>
+    <rect x="14.5" y="28.5" width="15" height="17" rx="2.5"/>
+    <path d="M36 31h13M36 37h9M36 43h6"/>
+    <path d="m43 47 4 3.5-4 3.5M37 47l-4 3.5 4 3.5"/>
+  </g>
+</svg>

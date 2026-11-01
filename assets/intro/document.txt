@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#ffffff">
+<base href="/assets/intro/">
+<!--CMP_CONTEXT-->
+<title>Crypto Marketing Global Intro</title>
+<link rel="icon" href="/assets/intro/logo-512.png">
+<script src="/assets/intro/locale.js"></script>
+<script src="/assets/intro/theme.js?v=responsive-20261027"></script>
+<style>
+/* Committed light look, same as the link preview card. Motion is scrubbed by scroll. */
+:root {
+  --bg: #ffffff;
+  --ink: #1d1d1f;
+  --ink-2: #6e6e73;
+  --ink-3: #a1a1a6;
+  --tile: #f5f5f7;
+  --tile-line: #e6e6eb;
+  --glass: rgba(255, 255, 255, 0.86);
+  --glass-line: rgba(0, 0, 0, 0.07);
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --gx: clamp(16px, 5vw, 80px);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+
+.track { position: relative; height: 1000vh; }
+.stage { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 42%, #ffffff 0%, #ffffff 40%, #f2f2f5 100%); }
+
+/* 3D space for the logos and the brand mark */
+.space { position: absolute; inset: 0; perspective: 1100px; perspective-origin: 50% 50%; pointer-events: none; }
+.world { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform-style: preserve-3d; }
+.t, .mk { position: absolute; will-change: transform, opacity; backface-visibility: hidden; }
+.t { left: calc(var(--T) / -2); top: calc(var(--T) / -2); width: var(--T); height: var(--T); border-radius: 24%;
+  background: var(--tile); border: 1px solid var(--tile-line); display: grid; place-items: center;
+  transition: background-color .4s ease, box-shadow .4s ease; }
+.t img { width: 60%; height: 60%; object-fit: contain; border-radius: 22%; display: block; }
+.t.hi { background: #fff; box-shadow: 0 18px 36px -18px rgba(0, 0, 0, .32); }
+.t { font-style: normal; }
+.t .nm { position: absolute; left: 50%; top: calc(100% + 8px / var(--fs, 1)); width: calc(var(--lw, 120px) / var(--fs, 1)); transform: translateX(-50%);
+  font-size: calc(var(--lf, 13px) / var(--fs, 1)); line-height: 1.2; color: var(--ink-2); text-align: center; white-space: normal; opacity: 0; transition: opacity .35s ease; pointer-events: none; }
+.t.hi .nm { opacity: 1; }
+@media (max-width: 760px) { .t .nm { letter-spacing: -0.01em; top: calc(100% + 5px / var(--fs, 1)); } }
+.orb { position: absolute; left: 0; top: 0; border-radius: 50%; border: 1px solid rgba(29, 29, 31, .09); pointer-events: none; will-change: transform, opacity; }
+.mk { left: calc(50% - var(--M) / 2); top: calc(50% - var(--M) / 2); z-index:1; backface-visibility:visible; will-change:auto; width: var(--M); height: var(--M); border-radius: 23%;
+  box-shadow: 0 30px 60px -28px rgba(0, 0, 0, .5); }
+
+.mk img { display:block; width:100%; height:100%; border-radius:inherit; }
+
+/* Copy layers, faded by the timeline */
+.copy { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  padding: 0 16px; gap: 18px; pointer-events: none; will-change: opacity, transform; }
+.copy .ph { flex: none; width: var(--MS); height: var(--MS); }
+h1, h2 { margin: 0; font-weight: 300; letter-spacing: -0.025em; line-height: 1.05; text-wrap: balance; }
+h1 { font-size: clamp(34px, 4.6vw, 64px); max-width: 14ch; }
+.big { font-size: clamp(34px, 4.4vw, 60px); }
+.lead { margin: 0; max-width: 42ch; font-size: clamp(15px, 1.3vw, 18px); line-height: 1.5; color: var(--ink-2); text-wrap: pretty; }
+.mid, .low { justify-content: flex-end; padding-bottom: clamp(48px, 9vh, 96px); }
+.mid .big { font-size: clamp(22px, 2.4vw, 32px); padding: 12px 24px; border-radius: 999px; background: var(--glass); border: 1px solid var(--glass-line);
+  -webkit-backdrop-filter: saturate(1.6) blur(20px); backdrop-filter: saturate(1.6) blur(20px); }
+.final .acts { pointer-events: auto; }
+.acts { display: flex; flex-wrap: nowrap; justify-content: center; gap: 10px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 20px; border-radius: 999px; text-decoration: none;
+  font-size: 15px; font-weight: 500; white-space: nowrap; border: 1px solid #d2d2d7; background: #fff; color: var(--ink); }
+.btn.dark { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+.chap { position: absolute; left: var(--gx); top: 50%; width: min(440px, 36vw); transform: translateY(-50%); display: flex; flex-direction: column; gap: 14px;
+  pointer-events: none; will-change: opacity, transform; }
+.kicker { margin: 0; font-size: 13px; color: var(--ink-3); font-variant-numeric: tabular-nums; white-space: pre; }
+.chap h2 { font-size: clamp(34px, 3.8vw, 54px); }
+.chap .text { margin: 0; font-size: 17px; line-height: 1.5; color: var(--ink-2); }
+.chap .count { margin: 4px 0 0; font-size: 13px; color: var(--ink-3); }
+
+.hint { position: absolute; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 22px); transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--ink-3); pointer-events: none; }
+.hint i { display: block; width: 1px; height: 30px; background: linear-gradient(var(--ink-3), transparent); animation: drip 1.8s ease-in-out infinite; transform-origin: top; }
+@keyframes drip { 0% { transform: scaleY(0); } 60% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
+.bar { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--ink); transform-origin: 0 50%; transform: scaleX(0); opacity: .85; }
+
+/* Top bar */
+.top { position: fixed; z-index: 5; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: calc(env(safe-area-inset-top, 0px) + 16px) var(--gx) 0; pointer-events: none; }
+.top > * { pointer-events: auto; }
+.pill { display: inline-flex; align-items: center; gap: 10px; height: 42px; padding: 0 16px; border-radius: 999px; text-decoration: none;
+  background: var(--glass); border: 1px solid var(--glass-line); -webkit-backdrop-filter: saturate(1.6) blur(20px); backdrop-filter: saturate(1.6) blur(20px);
+  font-size: 14px; font-weight: 500; color: var(--ink); white-space: nowrap; }
+.pill.brand { padding: 0 16px 0 6px; }
+.pill.brand img { width: 30px; height: 30px; border-radius: 8px; }
+
+@media (max-width: 760px) {
+  .pill { height: 38px; font-size: 13px; padding: 0 14px; }
+  .pill.brand { padding: 0 6px; }
+  .pill.brand img { width: 26px; height: 26px; }
+  .pill.brand b { display: none; }
+  .copy { gap: 14px; }
+  .chap { left: 20px; right: 20px; width: auto; top: calc(env(safe-area-inset-top, 0px) + 78px); transform: none; gap: 10px; }
+  .chap h2 { font-size: 30px; }
+  .chap .text { font-size: 15px; }
+  .btn { height: 42px; padding: 0 16px; font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .hint i { animation: none; } }
+/* Embedded overview follows the outer page's natural scroll, with no modal. */
+html.cmp-inline-intro:not(.reduced-motion),html.cmp-inline-intro:not(.reduced-motion) body { overflow:clip; }
+html.cmp-inline-intro:not(.reduced-motion) .track { height:100vh; }
+</style>
+<link rel="stylesheet" href="/assets/intro/language.css?v=responsive-20261027">
+<link rel="stylesheet" href="/assets/intro/theme.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="pill brand" id="brandPill" href="https://cryptomarketing.global/" aria-label="Crypto Marketing Global home"><img src="/assets/intro/logo-512.png" alt=""><b>Crypto Marketing Global</b></a>
+  <div class="top-actions">
+  <button class="pill theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark appearance" hidden>
+    <svg class="moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.2 15.3A8.7 8.7 0 0 1 8.7 3.8a8.7 8.7 0 1 0 11.5 11.5Z"/></svg>
+    <svg class="sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+  </button>
+  <label class="pill language-control">
+    <svg class="globe" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>
+    <select id="language" aria-label="Choose language"></select>
+    <svg class="chevron" aria-hidden="true" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m3 4.5 3 3 3-3"/></svg>
+  </label>
+  <a class="pill" id="skip" href="https://cryptomarketing.global/"><span id="skipText">Explore the full site</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</header>
+
+<main class="track" id="track">
+  <div class="stage" id="stage">
+    <div class="space" aria-hidden="true"><div class="world" id="world"></div></div>
+    <div class="copy low" id="hero"><h1 id="heroTitle">Crypto marketing services</h1><p class="lead" id="heroLead"></p></div>
+    <div class="copy mid" id="mid"><h2 class="big" id="midTitle"></h2></div>
+    <div id="chaps"></div>
+    <div class="copy final" id="final"><div class="ph" id="finalPh"></div><h2 class="big" id="finalTitle">Let’s grow your project</h2>
+      <div class="acts"><a class="btn dark" id="cta" href="https://cryptomarketing.global/contact/">Contact us</a><a class="btn" id="allServices" href="https://cryptomarketing.global/services/">All services</a></div></div>
+    <div class="hint" id="hint"><i></i><span id="hintText">Scroll to explore</span></div>
+    <div class="bar" id="bar"></div>
+  </div>
+</main>
+<noscript><div class="noscript"><p>Crypto Marketing Global</p><a href="https://cryptomarketing.global/">English</a> · <a href="https://cryptomarketing.global/tr/">Türkçe</a> · <a href="https://cryptomarketing.global/es/">Español</a> · <a href="https://cryptomarketing.global/de/">Deutsch</a> · <a href="https://cryptomarketing.global/fr/">Français</a> · <a href="https://cryptomarketing.global/pt-br/">Português</a> · <a href="https://cryptomarketing.global/ru/">Русский</a> · <a href="https://cryptomarketing.global/ar/">العربية</a> · <a href="https://cryptomarketing.global/ja/">日本語</a> · <a href="https://cryptomarketing.global/zh-hans/">简体中文</a> · <a href="https://cryptomarketing.global/sr/">Srpski</a> · <a href="https://cryptomarketing.global/hr/">Hrvatski</a></div></noscript>
+
+<script src="/assets/intro/intro-data.js?v=dark-20261026"></script>
+<script>
+(() => {
+  const D = window.CMP_INTRO, L = D.logos, CH = D.chapters;
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) document.documentElement.classList.add('reduced-motion');
+  const KEYS = Object.keys(L), NL = KEYS.length;
+  const total = CH.reduce((n, c) => n + c.services.length, 0);
+  const EXK = D.exchangeKeys || [];
+  const chLogos = CH.map(c => [...new Set(c.services.flatMap(s => s.slice(2)).concat(c.exchanges ? EXK : []))]);
+  $('heroLead').textContent = 'Trending, exchange listing, votes, social media, news articles and bots.';
+  $('midTitle').textContent = `${total} services, ${EXK.length} exchanges`;
+
+  // Chapter copy: one short line each
+  $('chaps').innerHTML = CH.map((c, i) => `<section class="chap" aria-label="${esc(c.label)}">
+    <p class="kicker">${String(i + 1).padStart(2, '0')}   ${esc(c.label)}</p>
+    <h2>${esc(c.title)}</h2>
+    <p class="text">${esc(c.text)}</p>
+    <p class="count">${c.services.length} services${c.exchanges ? `, ${EXK.length} exchanges` : ''}</p></section>`).join('');
+  const chapEls = [...$('chaps').children];
+
+  // Fixed shuffle so the wall looks the same on every visit
+  const order = (() => { const a = KEYS.slice(); let s = 67;
+    for (let i = a.length - 1; i > 0; i--) { s = (s * 9301 + 49297) % 233280; const j = Math.floor(s / 233280 * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a; })();
+
+  // Tiles and the brand mark live in one 3D world
+  const world = $('world');
+  world.innerHTML = '<i class="orb"></i>'.repeat(5) +
+    order.map(k => `<i class="t" data-logo="${esc(k)}"><img src="/assets/intro/logos/${L[k][0]}" alt="" decoding="async"><span class="nm" dir="auto">${esc(L[k][1])}</span></i>`).join('') + '<div class="mk" id="mk"><img src="/assets/intro/logo-512.png" alt=""></div>';
+  const orbs = [...world.querySelectorAll('.orb')];
+
+  // Even orbits around the mark: the biggest names closest to it, the exchange directory on the two outer rings
+  const inner = ['binance', 'cmc', 'gecko', 'telegram', 'x', 'solana', 'eth', 'dexscreener', 'pump', 'tiktok', 'okx'];
+  const middle = ['bybit', 'mexc', 'gate', 'cdc', 'bnb', 'base', 'dextools', 'gmgn', 'birdeye', 'jupiter', 'solscan', 'geckoterminal', 'robinhood', 'discord', 'reddit', 'bitget', 'bitmart', 'certik'];
+  const exOnly = new Set(EXK.filter(k => k.startsWith('ex-')));
+  const exList = order.filter(k => exOnly.has(k)), half = Math.ceil(exList.length / 2);
+  const ringKeys = [inner, middle, order.filter(k => !inner.includes(k) && !middle.includes(k) && !exOnly.has(k)), exList.slice(0, half), exList.slice(half)];
+  const RING_N = ringKeys.map(r => r.length), RING_K = [0.62, 1, 1.42, 1.9, 2.32];
+  const ringOf = {};
+  ringKeys.forEach((keys, r) => keys.forEach((k, j) => { ringOf[k] = { ring: r, j, n: keys.length }; }));
+  const tiles = [...world.querySelectorAll('.t')].map((el, i) => {
+    const k = order[i], o = ringOf[k];
+    return { el, k, ring: o.ring, a0: (o.j / o.n) * Math.PI * 2 + o.ring * 0.37, dir: o.ring % 2 ? -1 : 1, d: o.j / o.n,
+      ch: CH.map((c, n) => chLogos[n].indexOf(k)), hi: false };
+  });
+  const mk = $('mk');
+  $('stage').append(mk);
+
+  const PERS = 1100;
+  let G = {};
+  const ss = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const clamp = x => Math.min(1, Math.max(0, x));
+  const rectOf = el => el.getBoundingClientRect();
+  const grow = (b, p) => ({ left: b.left - p, right: b.right + p, top: b.top - p, bottom: b.bottom + p });
+  const hit = (r, a) => r.left < a.right && r.right > a.left && r.top < a.bottom && r.bottom > a.top;
+
+  function measure() {
+    const W = innerWidth, H = innerHeight, landscape = W > H && H <= 500;
+    const mob = W <= 760 && !landscape;
+    // Browser resizing can briefly report a zero or unusably small viewport.
+    if (W < 200 || H < 280) return;
+    const rtl = document.documentElement.dir === 'rtl';
+    const T = landscape ? 44 : mob ? 46 : Math.round(Math.max(58, Math.min(76, Math.min(W, H) * 0.075)));
+    const M = landscape ? 64 : mob ? 84 : 112;
+    document.documentElement.style.setProperty('--T', T + 'px');
+    document.documentElement.style.setProperty('--M', M + 'px');
+    document.documentElement.style.setProperty('--MS', M + 'px');
+    const cx = W / 2, cy = H / 2;
+    // Copy layers are moved by the timeline; measure them at rest
+    const moved = [$('hero'), $('final')];
+    const saved = moved.map(e => e.style.transform);
+    moved.forEach(e => { e.style.transform = 'none'; });
+    const centreOf = el => { const r = rectOf(el); return { x: r.left + r.width / 2 - cx, y: r.top + r.height / 2 - cy }; };
+    const R = mob ? Math.min((W / 2 - 22) / 1.42, H * 0.22) : Math.min(H * 0.26, W * 0.2);
+    const radii = RING_K.map(k => k * R);
+    const gap = Math.min(...radii.map((r, i) => 2 * Math.PI * r / RING_N[i]));
+    const ringTS = Math.min(mob ? 32 : 56, gap * 0.72, Math.min(...radii.slice(1).map((r, i) => r - radii[i])) * 0.62);
+    const off = mob ? { x: 0, y: H * 0.17 } : { x: W * (rtl ? -0.2 : 0.2), y: 0 };
+    const base = { x: 0, y: -H * (mob ? 0.08 : 0.06) };
+
+    // Chapter logos gather in a neat grid on the open side
+    const reg = landscape ? { x0: W * 0.52, x1: W - 20, y0: rectOf(document.querySelector('.top')).bottom + 16, y1: H - 22 } : mob ? { x0: 16, x1: W - 16, y0: H * 0.47, y1: H - 34 } : { x0: W * 0.47, x1: W - Math.max(24, W * 0.05), y0: H * 0.13, y1: H * 0.9 };
+    if (!mob && rtl) { const a = reg.x0; reg.x0 = W - reg.x1; reg.x1 = W - a; }
+    // Translated copy can have more lines. Keep the mobile logos below it.
+    if (mob) {
+      const textBottom = Math.max(...chapEls.map(el => parseFloat(getComputedStyle(el).top) + el.offsetHeight));
+      reg.y0 = Math.max(reg.y0, textBottom + 24);
+    }
+    const labelH = mob ? 28 : 24;
+    const focus = chLogos.map(keys => {
+      const n = keys.length, rw = reg.x1 - reg.x0, rh = reg.y1 - reg.y0;
+      const marquee = () => {
+        // Too many for a grid with names: rows that drift sideways, fading at the edges
+        const size = mob ? 44 : 56, sp = mob ? 80 : 106, lh = mob ? 30 : 34, rowH = size + lh + (mob ? 10 : 14);
+        const rows = Math.max(1, Math.floor(rh / rowH)), per = Math.ceil(n / rows), Lw = Math.max(per * sp, rw + sp * 3);
+        return { pos: {}, mq: { size, sp, rows, Lw, rowH, lh, x0: reg.x0, x1: reg.x1, cxr: reg.x0 + rw / 2 - cx, cyr: reg.y0 + rh / 2 - cy, lw: sp - 8, lf: mob ? 10 : 12 } };
+      }
+      if (n > 30) return marquee();
+      let best = { size: 0 };
+      for (let c = 1; c <= n; c++) {
+        const r = Math.ceil(n / c), cw = rw / c, chh = rh / r;
+        if (cw < (mob ? 52 : 68)) continue;
+        const size = Math.min(cw * 0.7, (chh - labelH) * 0.82, mob ? 60 : 104);
+        if (size > best.size) best = { size, c, r, cw, chh };
+      }
+      if (best.size < 28) return marquee();
+      const { size, cw, chh } = best, pos = {};
+      keys.forEach((k, j) => {
+        const row = Math.floor(j / best.c), inRow = Math.min(best.c, n - row * best.c), col = j - row * best.c;
+        pos[k] = { x: reg.x0 + rw / 2 + (col - (inRow - 1) / 2) * cw - cx, y: reg.y0 + rh / 2 + (row - (best.r - 1) / 2) * chh - labelH / 2 - cy, size, lw: Math.min(cw - 8, mob ? 90 : 150), lf: mob ? 10 : 13 };
+      });
+      return { pos };
+    });
+
+    // Final wall: every logo once, cells under the closing copy and the pills stay empty
+    const finBox = [$('finalPh'), ...$('final').children].map(rectOf);
+    const content = { left: Math.min(...finBox.map(b => b.left)), right: Math.max(...finBox.map(b => b.right)), top: Math.min(...finBox.map(b => b.top)), bottom: Math.max(...finBox.map(b => b.bottom)) };
+    const keep = [grow(content, mob ? 8 : 20), grow(rectOf($('brandPill')), 4), grow(rectOf($('skip')), 4), grow(rectOf($('language').parentElement), 4), grow(rectOf($('themeToggle')),4)];
+    let cols, rows, cw, chh, cells;
+    for (cols = mob ? 5 : 8; cols < 40; cols++) {
+      rows = Math.max(3, Math.round(cols * H / W)); cw = W / cols; chh = H / rows;
+      const ts = Math.min(cw, chh) * (mob ? 0.74 : 0.66);
+      cells = [];
+      for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+        const x = (c + 0.5) * cw, y = (r + 0.5) * chh;
+        cells.push({ r, c, x, y, ts, blocked: keep.some(k => hit({ left: x - ts / 2, right: x + ts / 2, top: y - ts / 2, bottom: y + ts / 2 }, k)) });
+      }
+      if (cells.filter(c => !c.blocked).length >= NL) break;
+    }
+    const mx = (content.left + content.right) / 2, my = (content.top + content.bottom) / 2;
+    const sx = Math.max(1, content.right - content.left), sy = Math.max(1, content.bottom - content.top);
+    const free = cells.filter(c => !c.blocked).sort((a, b) => Math.hypot((b.x - mx) / sx, (b.y - my) / sy) - Math.hypot((a.x - mx) / sx, (a.y - my) / sy)).slice(0, NL)
+      .sort((a, b) => a.r - b.r || a.c - b.c);
+    const wall = {};
+    order.forEach((k, i) => {
+      const c = free[i];
+      wall[k] = c ? { x: c.x - cx, y: c.y - cy, size: c.ts, ring: Math.hypot((c.x - mx) / W, (c.y - my) / H) }
+        : { x: 0, y: 0, size: 0, ring: 0, hidden: true };
+    });
+
+    // Keep the hero rings clear of translated titles, including short desktop windows.
+    const heroTop = rectOf($('heroTitle')).top;
+    const headerBottom = rectOf(document.querySelector('.top')).bottom;
+    const heroRadius = radii[2] * 0.7 + ringTS / 2;
+    const heroFit = Math.min(1, Math.max(0.2, (heroTop - headerBottom - 48) / (2 * heroRadius)));
+    const heroY = Math.min(-H * (mob ? 0.13 : 0.1), heroTop - cy - 24 - heroRadius * heroFit);
+    G = { W, H, mob, T, M, R, radii, ringTS, heroFit, off, base, focus, wall, heroMark: { x: 0, y: heroY }, finalMark: centreOf($('finalPh')) };
+    moved.forEach((e, i) => { e.style.transform = saved[i]; });
+  }
+
+  // Screen point and size at depth z, for the perspective camera
+  const atDepth = (x, y, size, z, T) => ({ x: x * (PERS - z) / PERS, y: y * (PERS - z) / PERS, z, s: size / T * (PERS - z) / PERS });
+
+  let p = 0, target = 0, last = performance.now(), t0 = last, mxp = 0, myp = 0, pmx = 0, pmy = 0;
+  const track = $('track'), hero = $('hero'), mid = $('mid'), fin = $('final'), hint = $('hint'), bar = $('bar');
+  const NC = CH.length, C0 = 0.27, CS = 0.074;
+
+  function frame(now) {
+    if (reduce) return;
+    if (document.hidden || window.CMP_INTRO_VISIBLE === false) { last = now; requestAnimationFrame(frame); return; }
+    if (!G.W) { requestAnimationFrame(frame); return; }
+    const dt = Math.min(0.1, (now - last) / 1000); last = now;
+    const span = track.offsetHeight - innerHeight;
+    target = window.CMP_INTRO_CONTEXT?.mode === 'inline' ? (window.CMP_INTRO_PROGRESS || 0) : (span > 0 ? clamp((scrollY - track.offsetTop) / span) : 0);
+    p = reduce ? target : p + (target - p) * (1 - Math.exp(-dt * 7));
+    pmx += (mxp - pmx) * (1 - Math.exp(-dt * 4)); pmy += (myp - pmy) * (1 - Math.exp(-dt * 4));
+    const { R, T, off, base, focus, wall, mob } = G;
+    const time = reduce ? 0 : (now - t0) / 1000;
+
+    const burst = ss(0.05, 0.25, p);
+    const cw = ss(0.24, 0.29, p);
+    const fw = ss(0.86, 0.97, p);
+    const w = CH.map((c, k) => { const a = C0 + k * CS; return ss(a, a + 0.022, p) * (1 - ss(a + CS - 0.02, a + CS + 0.002, p)); });
+    const spin = time * 0.05 + p * 1.6;
+    const ox = lerp(base.x, off.x, cw), oy = lerp(base.y, off.y, cw);
+    const hm0 = G.heroMark;
+    const ringFade = (1 - cw) * (1 - fw);
+
+    // Orbit lines
+    orbs.forEach((el, r) => {
+      const rr = G.radii[r] * lerp(0.7 * G.heroFit, 1, burst), ccx = lerp(hm0.x, ox, burst), ccy = lerp(hm0.y, oy, burst);
+      el.style.width = el.style.height = (rr * 2).toFixed(1) + 'px';
+      el.style.transform = `translate3d(${(ccx - rr).toFixed(1)}px,${(ccy - rr).toFixed(1)}px,-2px)`;
+      el.style.opacity = (lerp(r >= 3 ? 0 : 0.55, 1, burst) * ringFade).toFixed(3);
+    });
+
+    tiles.forEach(tl => {
+      // Orbits: small and soft around the hero mark, full size after the first scroll
+      const b = clamp(burst * 1.5 - tl.d * 0.5);
+      const rr = G.radii[tl.ring] * lerp(0.7 * G.heroFit, 1, b), ang = tl.a0 + tl.dir * spin;
+      const ccx = lerp(hm0.x, ox, b), ccy = lerp(hm0.y, oy, b);
+      let x = ccx + rr * Math.cos(ang), y = ccy + rr * Math.sin(ang), z = 0;
+      let s = G.ringTS / T * lerp(0.75 * G.heroFit, 1, b), o = lerp(tl.ring >= 3 ? 0 : 0.45, 1, b) * (1 - cw);
+      let on = false;
+      for (let k = 0; k < NC; k++) {
+        if (w[k] <= 0) continue;
+        const j = tl.ch[k];
+        if (j >= 0) {
+          const n = chLogos[k].length, wj = ss(0, 1, clamp(w[k] * 1.5 - (j / n) * 0.5));
+          const F = focus[k]; let f, vis = 1;
+          if (F.mq) {
+            const m = F.mq, row = j % m.rows, col = Math.floor(j / m.rows), dir = row % 2 ? -1 : 1;
+            const u = (((col * m.sp + dir * time * m.sp * 0.32) % m.Lw) + m.Lw) % m.Lw;
+            const sx = m.cxr + u - m.Lw / 2, ax = sx + G.W / 2, edge = m.sp * 0.7;
+            vis = ss(m.x0 - 4, m.x0 + edge, ax) * (1 - ss(m.x1 - edge, m.x1 + 4, ax));
+            f = { x: sx, y: m.cyr + (row - (m.rows - 1) / 2) * m.rowH - m.lh / 2, size: m.size, lw: m.lw, lf: m.lf };
+          } else f = F.pos[tl.k];
+          const q = atDepth(f.x, f.y, f.size, 60, T);
+          x = lerp(x, q.x, wj); y = lerp(y, q.y, wj); z = lerp(z, q.z, wj); s = lerp(s, q.s, wj); o = lerp(o, vis, wj);
+          if (wj > 0.5 && vis > 0.05) { on = true; if (tl.fs !== q.s || tl.lf !== f.lf) { tl.fs = q.s; tl.lf = f.lf; tl.el.style.setProperty('--fs', q.s.toFixed(3)); tl.el.style.setProperty('--lw', f.lw.toFixed(0) + 'px'); tl.el.style.setProperty('--lf', f.lf + 'px'); } }
+        }
+      }
+      if (fw > 0) {
+        // The wall fades in where it stands, in a wave from the centre, instead of flying across
+        const wl = wall[tl.k], ft = ss(0, 1, clamp(fw * 1.6 - wl.ring * 0.9));
+        if (ft > 0) { o = wl.hidden ? 0 : Math.max(o * (1 - ft), ft); x = lerp(x, wl.x, o > 0.02 && ft < 1 ? 1 : ft); y = lerp(y, wl.y, o > 0.02 && ft < 1 ? 1 : ft); z = lerp(-140, 0, ft); s = wl.size / T * lerp(0.72, 1, ft); }
+      }
+      tl.el.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,${z.toFixed(1)}px) scale(${s.toFixed(3)})`;
+      tl.el.style.opacity = o.toFixed(3);
+      if (on !== tl.hi) { tl.hi = on; tl.el.classList.toggle('hi', on); }
+    });
+
+    // Brand mark: hero centre, then heart of the sphere, then above the closing line
+    const hm = G.heroMark, fm = G.finalMark;
+    let mx = lerp(hm.x, ox, burst), my = lerp(hm.y, oy, burst), ms = lerp(1, 0.72, burst), mo = 1 - cw;
+    mx = lerp(mx, fm.x, fw); my = lerp(my, fm.y, fw); ms = lerp(ms, 1, fw); mo = lerp(mo, 1, fw);
+    mk.style.transform = `translate(${mx.toFixed(1)}px,${my.toFixed(1)}px) scale(${ms.toFixed(3)})`;
+    mk.style.opacity = mo.toFixed(3);
+
+    // Copy
+    const ho = 1 - ss(0.015, 0.07, p);
+    hero.style.opacity = ho; hero.style.transform = `translateY(${(-(1 - ho) * 30).toFixed(1)}px)`;
+    hero.style.visibility = ho < 0.01 ? 'hidden' : '';
+    const mo2 = ss(0.15, 0.19, p) * (1 - ss(0.235, 0.26, p));
+    mid.style.opacity = mo2; mid.style.transform = `translateY(${((1 - mo2) * 24).toFixed(1)}px)`;
+    mid.style.visibility = mo2 < 0.01 ? 'hidden' : '';
+    chapEls.forEach((el, k) => {
+      el.style.opacity = w[k].toFixed(3);
+      el.style.transform = (mob ? '' : 'translateY(-50%) ') + `translateY(${((1 - w[k]) * 26).toFixed(1)}px)`;
+      el.style.visibility = w[k] < 0.01 ? 'hidden' : '';
+    });
+    const fo = ss(0.93, 0.985, p);
+    fin.style.opacity = fo; fin.style.transform = `translateY(${((1 - fo) * 24).toFixed(1)}px)`;
+    fin.style.visibility = fo < 0.01 ? 'hidden' : '';
+    hint.style.opacity = 1 - ss(0, 0.025, p);
+    bar.style.transform = `scaleX(${p.toFixed(4)})`;
+    world.style.transform = `rotateY(${(pmx * 5).toFixed(2)}deg) rotateX(${(-pmy * 4).toFixed(2)}deg)`;
+    requestAnimationFrame(frame);
+  }
+
+  if (!reduce) { measure(); requestAnimationFrame(frame); }
+  let rz;
+  function remeasure() { if (!reduce) { clearTimeout(rz); rz = setTimeout(measure, 0); } }
+  addEventListener('resize', remeasure);
+  document.addEventListener('cmp:languagechange', remeasure);
+  document.addEventListener('cmp:themechange', remeasure);
+  matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', () => location.reload());
+  if (!reduce && matchMedia('(hover: hover)').matches) {
+    addEventListener('pointermove', e => { mxp = e.clientX / innerWidth - 0.5; myp = e.clientY / innerHeight - 0.5; }, { passive: true });
+  }
+})();
+</script>
+<script src="/assets/intro/localize-ui.js"></script>
+<script src="/assets/intro/bridge.js?v=20261026-seo3"></script>
+</body>
+</html>

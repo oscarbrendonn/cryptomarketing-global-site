@@ -1,0 +1,37 @@
+/* A normal page section, never a modal over the indexable main content. */
+html.cmp-intro-pending body::before {
+  content:""; display:block; height:100vh; height:100svh; background:#fff;
+}
+html[data-theme="dark"].cmp-intro-pending body::before { background:#0a0a0c; }
+#cmp-intro-preview {
+  position:absolute; inset:0 auto auto 0; width:100%; margin:0; padding:0;
+  border:0; visibility:hidden; pointer-events:none; background:#fff; color:#1d1d1f;
+}
+#cmp-intro-preview[data-ready="true"] {
+  position:relative; inset:auto; height:1000vh; height:1000svh;
+  visibility:visible; pointer-events:auto;
+}
+[data-theme="dark"] #cmp-intro-preview { background:#0a0a0c; color:#f5f5f7; }
+#cmp-intro-preview iframe {
+  display:block; position:sticky; top:0; width:100%; height:100vh; height:100svh; border:0;
+}
+#cmp-intro-preview[data-reduced-motion="true"] { height:auto; }
+#cmp-intro-preview[data-reduced-motion="true"] iframe { position:relative; }
+/* Programmatic landmark focus keeps reading order without outlining the page. */
+main[data-cmp-intro-focus]:focus { outline:none; }
+#cmp-intro-preview iframe:focus { outline:none; }
+
+/* The loading state has a real exit link; it never hides or locks the site. */
+#cmp-intro-placeholder {
+  position:absolute; inset:0 auto auto 0; width:100%; height:100vh; height:100svh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:28px; padding:24px; color:#1d1d1f; font-family:inherit;
+}
+#cmp-intro-placeholder img { width:112px; height:112px; border-radius:26px; }
+#cmp-intro-placeholder a {
+  padding:12px 20px; border-radius:999px; border:1px solid #d2d2d7;
+  background:#fff; color:inherit; text-decoration:none; text-align:center;
+}
+[data-theme="dark"] #cmp-intro-placeholder { color:#f5f5f7; }
+[data-theme="dark"] #cmp-intro-placeholder a { background:#202025; border-color:#414148; }
+#cmp-intro-placeholder a:focus-visible { outline:2px solid #638ad9; outline-offset:3px; }
