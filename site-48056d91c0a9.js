@@ -90,16 +90,15 @@
   revealServiceAnchor();
 })();
 
-// Global Google Ads Telegram contact measurement.
-// The existing account contact goal is shared; only this website is changed.
+// Global Google Ads contact-page measurement for the tilkisarp account.
+// The conversion rule itself is configured in Google Ads for /contact/.
 (() => {
   'use strict';
   if (!['cryptomarketing.global', 'www.cryptomarketing.global'].includes(location.hostname)) return;
   if (window.__globalGoogleAdsLoaded) return;
   window.__globalGoogleAdsLoaded = true;
 
-  const tagId = 'AW-18474066108';
-  const conversion = tagId + '/sdz4CI2X-4YdELzBj-lE';
+  const tagId = 'GTM-PKNXPD5M';
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   // No consent is inferred. Keep advertising/analytics storage and
@@ -110,27 +109,9 @@
   });
   window.gtag('set', 'ads_data_redaction', true);
   window.gtag('js', new Date());
-  window.gtag('config', tagId, { allow_ad_personalization_signals: false });
 
   const script = document.createElement('script');
   script.async = true;
   script.src = 'https://www.googletagmanager.com/gtag/js?id=' + tagId;
   document.head.appendChild(script);
-
-  let lastContactClick = -Infinity;
-  document.addEventListener('click', (event) => {
-    if (event.defaultPrevented || event.button !== 0) return;
-    const link = event.target.closest && event.target.closest('a[href]');
-    if (!link) return;
-    let target;
-    try { target = new URL(link.href, location.href); } catch (_) { return; }
-    if (target.protocol !== 'https:' || !['t.me', 'telegram.me'].includes(target.hostname)) return;
-    if (target.pathname.replace(/\/$/, '').toLowerCase() !== '/oscarbrencyrpto') return;
-    // Only the business contact counts, never referral bots or page loads.
-    // Suppress rapid duplicates without delaying or blocking Telegram.
-    const now = Date.now();
-    if (now - lastContactClick < 1500) return;
-    lastContactClick = now;
-    window.gtag('event', 'conversion', { send_to: conversion });
-  });
 })();
