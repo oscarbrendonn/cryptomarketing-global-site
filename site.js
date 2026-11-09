@@ -98,7 +98,7 @@
   if (window.__globalGoogleAdsLoaded) return;
   window.__globalGoogleAdsLoaded = true;
 
-  const tagId = 'GTM-PKNXPD5M';
+  const tagId = 'AW-18475015064';
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   // No consent is inferred. Keep advertising/analytics storage and
@@ -109,6 +109,7 @@
   });
   window.gtag('set', 'ads_data_redaction', true);
   window.gtag('js', new Date());
+  window.gtag('config', tagId);
 
   const script = document.createElement('script');
   script.async = true;
