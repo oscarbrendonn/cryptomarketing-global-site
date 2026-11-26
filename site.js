@@ -21,16 +21,20 @@
     return null;
   }
   let choice = stored();
-  window.gtag('consent', 'default', state(false));
-  window.gtag('set', 'ads_data_redaction', true);
-  if (choice) window.gtag('consent', 'update', state(choice.allow));
-  window.gtag('js', new Date());
-  window.gtag('config', 'AW-18475015064', {allow_ad_personalization_signals: false});
-  if (production) {
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18475015064';
-    document.head.appendChild(script);
+  // Head bootstrap is primary; keep a fallback for cached older HTML and local QA.
+  if (!window.__globalGoogleAdsBootstrapped) {
+    window.__globalGoogleAdsBootstrapped = true;
+    window.gtag('consent', 'default', state(false));
+    window.gtag('set', 'ads_data_redaction', true);
+    if (choice) window.gtag('consent', 'update', state(choice.allow));
+    window.gtag('js', new Date());
+    window.gtag('config', 'AW-18475015064', {allow_ad_personalization_signals: false});
+    if (production) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18475015064';
+      document.head.appendChild(script);
+    }
   }
   function clearMeasurementCookies() {
     const names = document.cookie.split(';').map(item => item.split('=')[0].trim()).filter(name => /^(_gcl_|_ga(?:_|$)|_gid$)/.test(name));
